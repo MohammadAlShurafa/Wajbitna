@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Customer.Fragments.NearbyRestaurantsFragment">
+
+    <fragment
+        android:id="@+id/nearbyMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+    <ImageButton
+        android:id="@+id/nearbyCurrentLocationBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/my_location_map_icon"
+        app:layout_constraintBottom_toTopOf="@+id/nearbyRestaurantsRv"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.13" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/nearbyRestaurantsRv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="15dp"
+        android:clipToPadding="false"
+        android:visibility="visible"
+        tools:listitem="@layout/item_nearby_map_restaurant"
+        android:overScrollMode="never"
+        app:layout_constraintHeight_percent="0.35"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/nearbyRestaurantsSearchRv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintVertical_bias="0"
+        android:background="@drawable/search_results_list_background"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:paddingTop="30dp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/nearbyRestaurantsRv"
+        app:layout_constraintEnd_toEndOf="@+id/nearbyRestaurantsSv"
+        app:layout_constraintStart_toStartOf="@+id/nearbyRestaurantsSv"
+        app:layout_constraintTop_toTopOf="@+id/nearbyRestaurantsSv" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/nearbyRestaurantsSv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/search_background"
+        app:defaultQueryHint="Search for a restaurant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/nearbyRestaurantsDirectionsIv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/white_circle"
+        android:padding="5dp"
+        android:src="@drawable/directions_icon"
+        android:visibility="gone"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/nearbyRestaurantsRv"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.15" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
